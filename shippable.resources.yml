@@ -1,0 +1,5 @@
+- name: qingstor_key
+  type: params
+  version:
+    params:
+      secure: fhRglMUKlA8s1slheakYkTSWm74+rGq9QZwO1cYfkOKmxC7aWsuXiuDNaGQ/FRO6p8dkjLcGzMoYebOECjNJghmBMeKPC0RcGySZe+TgJYn6ULB3LakMxrYZ179lEyjaESGZegmehi1cYbRgd1inr+K/NlUUMkUre++7pjkIRGAKx3DGDZK2pfX3ElON1ZWajfho7j8CADvvCvf8cZnI+JBuykaP+yoHushezhPOomhytb5B3tVaEonqGpM/GSJyuZr0QBgOyIuv6EsDGUfGKe5n1a/qRyKsWOCb/A9JoFdB2lUlCdvi1DOF4aGz7i/9Hvm4mhp562D4+xUVX/sEMg==
