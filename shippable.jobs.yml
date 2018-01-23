@@ -11,14 +11,19 @@ jobs:
             echo "access_key_id: $access_key_id" > config.yaml
             echo "secret_access_key: $secret_access_key" >> config.yaml
             pip install -U qsctl
-            mkdir helm
-            cd helm
-            qstorpath=qs://helm-chart-repo/
-            gsutil cp -r gs://kubernetes-charts/* .
+            curl https://raw.githubusercontent.com/QingCloudContainerPlatform/helm_chart_sync/master/chart.list | while read repo
+            do \
+            echo "copying $repo"
+            mkdir $repo
+            cd $repo
+            qstorpath=qs://helm-chart-repo/$repo/
+            gsutil cp -r gs://$repo/* .
             sed -i -e 's/kubernetes-charts.storage.googleapis.com/helm-chart-repo.pek3a.qingstor.com/g' index.yaml
             qsctl cp -r --force . $qstorpath -c ../config.yaml --zone pek3a
             cd ..
-            rm -rf helm
+            rm -rf $repo
+            echo "copied $repo"
+            done
     on_success:
       - script: echo "Synced helm_chart_repo to bucket"
       - NOTIFY: slack
