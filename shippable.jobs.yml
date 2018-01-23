@@ -15,6 +15,7 @@ jobs:
             cd helm
             qstorpath=qs://helm-chart-repo/
             gsutil cp -r gs://kubernetes-charts/* .
+            sed -i -e 's/kubernetes-charts.storage.googleapis.com/helm-chart-repo.pek3a.qingstor.com/g' index.yaml
             qsctl cp -r --force . $qstorpath -c ../config.yaml --zone pek3a
             cd ..
             rm -rf helm
