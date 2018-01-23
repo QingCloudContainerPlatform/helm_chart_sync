@@ -11,7 +11,8 @@ jobs:
             echo "access_key_id: $access_key_id" > config.yaml
             echo "secret_access_key: $secret_access_key" >> config.yaml
             pip install -U qsctl
-            curl https://raw.githubusercontent.com/QingCloudContainerPlatform/helm_chart_sync/master/chart.list | while read repo
+            curl -O -Lhttps://raw.githubusercontent.com/QingCloudContainerPlatform/helm_chart_sync/master/chart.list
+            cat chart.list | while read repo
             do \
             echo "copying $repo"
             mkdir $repo
